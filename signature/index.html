@@ -429,7 +429,7 @@ function socials(){
 }
 function signature(d, photoSrc){
   const sp = w => `<td style="width:${w}px;font-size:0;line-height:0;">&nbsp;</td>`;
-  const nt = `<div style="${F}font-size:24px;line-height:30px;font-weight:bold;letter-spacing:-0.2px;color:${C.name};">${esc(d.name)}</div>
+  const nt = `<div style="${F}font-size:20px;line-height:30px;font-weight:normal;letter-spacing:-0.2px;color:${C.name};">${esc(d.name)}</div>
 <div style="${F}font-size:11px;line-height:18px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:${C.red};padding-top:2px;">${esc(d.title)}</div>`;
   const left = photoSrc
     ? T('', `<tr><td valign="middle" style="width:72px;padding:0 14px 0 0;"><img src="${photoSrc}" width="72" height="72" alt="${esc(d.name)}" style="display:block;width:72px;height:72px;min-width:72px;max-width:72px;border:0;border-radius:50%;"></td><td valign="middle" style="${F}">${nt}</td></tr>`) + '<div style="height:31px;line-height:31px;font-size:31px;">&nbsp;</div>'
