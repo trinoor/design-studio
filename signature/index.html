@@ -1,0 +1,547 @@
+<!doctype html>
+<!--
+  TRINOOR EMAIL SIGNATURE — Design Studio
+  Live at: https://trinoor.github.io/design-studio/signature/
+
+  HOW IT WORKS
+  - Every image in the signature is loaded from PUBLIC_BASE below, so it survives replies,
+    forwards and phones. Nothing is embedded in the email.
+  - Staff photos live in the photos/ folder, named after the person's email:
+      sarah.oconnor@trinoor.com  ->  photos/sarah.oconnor.png
+    Staff download a ready-cut PNG from this page and email it to Design Studio.
+    Upload it to photos/ on GitHub; the page finds it automatically within a few minutes.
+
+  IF THE ADDRESS CHANGES (e.g. design.trinoor.com): update PUBLIC_BASE, then ask staff to
+  copy and paste their signature again.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinoor Email Signature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#DF1126; --navy:#0C1428; --blue:#3242FF;
+  --bg:#F4F5F8; --surface:#FFFFFF; --fg:#0C1428; --muted:#5A6275; --line:#E2E5EB; --field:#FFFFFF; --fieldline:#CBD0D9;
+  --chip:#EEF0F4; --ok:#1F7A4D; --warnbg:#FFF7E0; --warnline:#F0D58A; --warnfg:#6B5310;
+  --sans:'Public Sans',Arial,Helvetica,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A101F; --surface:#121A2C; --fg:#ECEEF3; --muted:#A3AAB8; --line:#243049; --field:#0E1526; --fieldline:#2E3A55; --chip:#1A2338; --ok:#5BD39A;
+  --warnbg:#2A2410; --warnline:#5C4B1A; --warnfg:#F0D58A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A101F; --surface:#121A2C; --fg:#ECEEF3; --muted:#A3AAB8; --line:#243049; --field:#0E1526; --fieldline:#2E3A55; --chip:#1A2338; --ok:#5BD39A;
+  --warnbg:#2A2410; --warnline:#5C4B1A; --warnfg:#F0D58A; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--navy);color:#fff}
+header.top .wrap{display:flex;align-items:center;gap:16px;padding-block:18px}
+header.top img{height:28px;width:auto;display:block}
+header.top .sep{width:1px;height:26px;background:rgba(255,255,255,.2)}
+header.top .ttl{font-weight:600;font-size:14px;color:#C9CEDA;letter-spacing:.02em}
+.intro{background:var(--navy);color:#fff;border-bottom:4px solid var(--red)}
+.intro .wrap{padding-block:8px 32px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 8px}
+h1{font-size:clamp(26px,4vw,36px);line-height:1.15;margin:0 0 10px;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.intro p{margin:0;max-width:660px;color:#C9CEDA}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0;padding:0;list-style:none}
+.steps li{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 14px 5px 5px}
+.n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:700;flex:none}
+.grid{display:grid;grid-template-columns:340px minmax(0,1fr);gap:28px;align-items:start;padding-block:28px 0}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.form{position:sticky;top:16px}
+@media (max-width:900px){.form{position:static}}
+.card h2{font-size:17px;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+.sub{font-size:13px;color:var(--muted);margin:0 0 16px}
+.fields{display:grid;gap:12px}
+label{display:block;font-size:12px;font-weight:600;margin:0 0 5px;color:var(--fg)}
+label .opt{font-weight:400;color:var(--muted)}
+input[type=text],input[type=email],input[type=tel],select{width:100%;font:inherit;font-size:14px;color:var(--fg);background:var(--field);border:1px solid var(--fieldline);border-radius:8px;padding:9px 11px;outline:none}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(50,66,255,.2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+.hint{font-size:12px;color:var(--muted);margin:4px 0 0}
+.err{font-size:12px;color:var(--red);margin:4px 0 0}
+.check{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:600;margin:0;cursor:pointer}
+.check input{accent-color:var(--red);width:16px;height:16px;margin:0}
+.photo-box{margin-top:10px;border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:10px;font-size:13px}
+.photo-row{display:flex;gap:12px;align-items:center}
+.photo-row img{width:56px;height:56px;border-radius:50%;background:var(--chip);flex:none;object-fit:cover}
+.status{font-weight:600}
+.status.ok{color:var(--ok)}
+.status.wait{color:var(--warnfg)}
+.photo-steps{margin:0;padding-left:18px;color:var(--muted)}
+.photo-steps li{margin:0 0 4px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.pick{display:grid;gap:8px}
+.pick button{display:grid;gap:6px;text-align:left;font:inherit;font-size:13px;font-weight:600;color:var(--fg);background:var(--field);border:1px solid var(--fieldline);border-radius:10px;padding:8px;cursor:pointer}
+.pick button img{display:block;width:100%;height:auto;border-radius:4px;aspect-ratio:57/10;object-fit:cover;background:var(--chip)}
+.pick button[aria-checked=true]{border-color:var(--red);box-shadow:0 0 0 2px var(--red)}
+.pick button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.preview{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.mail-bar{display:flex;gap:6px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line)}
+.mail-bar i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.mail-bar span{margin-left:10px;font-size:12px;color:var(--muted)}
+.mail{background:#fff;padding:26px 24px;overflow-x:auto;color:#333}
+.mail .fake{font-family:Arial,sans-serif;font-size:14px;color:#555;margin:0 0 18px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:14px 20px;border-top:1px solid var(--line)}
+.btn{font:inherit;font-weight:600;font-size:14px;border-radius:8px;padding:9px 16px;cursor:pointer;border:1px solid transparent;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.btn.primary{background:var(--red);color:#fff}
+.btn.primary:hover{background:#BF0E20}
+.btn.ghost{background:transparent;border-color:var(--fieldline);color:var(--fg)}
+.btn.ghost:hover{background:var(--chip)}
+.btn.small{font-size:13px;padding:6px 12px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.toast{font-size:13px;font-weight:600;color:var(--ok)}
+.toast.bad{color:var(--red)}
+.section{margin-top:28px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 18px;border-bottom:1px solid var(--line)}
+.tab{font:inherit;font-size:14px;font-weight:600;color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;margin-bottom:-1px;cursor:pointer}
+.tab[aria-selected=true]{color:var(--fg);border-bottom-color:var(--red)}
+.tab:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+.panel{display:none}.panel.on{display:block}
+ol.how{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.how li{counter-increment:s;position:relative;padding:2px 0 12px 38px}
+ol.how li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) ol.how li::before{background:#2E3A55}}
+kbd{font-family:inherit;font-size:12px;font-weight:600;background:var(--chip);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+.path{font-weight:600}
+.note{font-size:13px;color:var(--muted);background:var(--chip);border-radius:8px;padding:10px 14px;margin:6px 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+dl.faq{margin:12px 0 0}
+dl.faq dt{font-weight:700;font-size:14px}
+dl.faq dd{margin:0 0 12px;color:var(--muted);font-size:14px}
+details.admin{margin:28px 0 0;font-size:13px;color:var(--muted)}
+details.admin summary{cursor:pointer;font-weight:600;color:var(--fg)}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px;margin-top:40px}
+footer .wrap{padding-block:18px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <img src="assets/logo-white.png" alt="Trinoor" width="107" height="28">
+  <div class="sep"></div>
+  <div class="ttl">Design Studio</div>
+</div></header>
+<section class="intro"><div class="wrap">
+  <p class="kicker">Company email signature</p>
+  <h1>Set up your Trinoor signature</h1>
+  <p>Everyone at Trinoor uses this same design. Fill in your details, copy your signature, then paste it into Outlook. Please don't change the fonts, colors or layout after pasting.</p>
+  <ul class="steps">
+    <li><span class="n">1</span>Your details</li>
+    <li><span class="n">2</span>Copy</li>
+    <li><span class="n">3</span>Paste into Outlook</li>
+    <li><span class="n">4</span>Send yourself a test</li>
+  </ul>
+</div></section>
+
+<main class="wrap">
+<div class="grid">
+  <form class="card form" id="form" autocomplete="on" novalidate>
+    <h2><span class="n">1</span>Your details</h2>
+    <p class="sub">Type them exactly as you want them to appear.</p>
+    <div class="fields">
+      <div><label for="name">Full name</label><input id="name" type="text" autocomplete="name" placeholder="Jordan Smith"></div>
+      <div><label for="title">Job title</label><input id="title" type="text" autocomplete="organization-title" placeholder="Senior Consultant"></div>
+      <div><label for="email">Work email</label><input id="email" type="email" autocomplete="email" placeholder="jordan.smith@trinoor.com">
+        <p class="err" id="emailErr" hidden>Use your @trinoor.com address.</p></div>
+      <div class="row2">
+        <div><label for="mobile">Mobile</label><input id="mobile" type="tel" autocomplete="tel" placeholder="+1 404 555 0123"></div>
+        <div><label for="office">Office <span class="opt">(optional)</span></label><input id="office" type="tel" placeholder="+1 855 827 0911"></div>
+      </div>
+      <p class="hint" style="margin-top:-6px">Include the country code: +1 (US), +61 (AU), +63 (PH).</p>
+      <div><label for="loc">Location</label>
+        <select id="loc">
+          <option value="hq">Marietta, GA (HQ)</option>
+          <option value="ph">Quezon City, Philippines</option>
+          <option value="custom">Other (type your own)</option>
+          <option value="none">Don't show</option>
+        </select>
+        <div id="customWrap" hidden style="margin-top:8px"><label for="custom" class="sr">Your location</label><input id="custom" type="text" placeholder="e.g. Gold Coast, Australia"></div></div>
+
+      <div>
+        <label class="check"><input type="checkbox" id="usePhoto"> Add my photo <span class="opt" style="font-weight:400;color:var(--muted)">(optional)</span></label>
+        <div class="photo-box" id="photoBox" hidden>
+          <div class="photo-row">
+            <img id="photoPrev" alt="">
+            <div class="status" id="photoStatus" role="status"></div>
+          </div>
+          <div id="photoMissing" hidden>
+            <ol class="photo-steps">
+              <li>Choose a square, head-and-shoulders photo.</li>
+              <li>Download it. It's already cropped round and named for you.</li>
+              <li>Email it to Design Studio. We'll add it, usually within a day.</li>
+            </ol>
+            <div class="btns" style="margin-top:8px">
+              <label class="btn ghost small" for="photoFile" style="margin:0">Choose photo</label>
+              <input id="photoFile" type="file" accept="image/*" class="sr">
+              <button type="button" class="btn ghost small" id="photoDownload" disabled>Download my photo</button>
+              <a class="btn ghost small" id="photoMail" href="#">Email Design Studio</a>
+            </div>
+            <p class="hint" style="margin-top:8px">You can copy your signature without a photo now and come back once it's added.</p>
+          </div>
+          <div class="btns"><button type="button" class="btn ghost small" id="photoRecheck">Check again</button></div>
+        </div>
+      </div>
+
+      <div><label id="bannerLbl">Banner</label>
+        <div class="pick" role="radiogroup" aria-labelledby="bannerLbl" id="bannerPick">
+          <button type="button" role="radio" aria-checked="true"  data-banner="key"><img data-src="assets/banner-glowing-key.jpg" alt=""><span>Glowing Key</span></button>
+          <button type="button" role="radio" aria-checked="false" data-banner="helix"><img data-src="assets/banner-tashelix.jpg" alt=""><span>TAShelix Cards</span></button>
+          <button type="button" role="radio" aria-checked="false" data-banner="none"><span>No banner</span></button>
+        </div></div>
+    </div>
+  </form>
+
+  <div>
+    <section class="preview" aria-labelledby="prevLbl">
+      <div class="mail-bar"><i></i><i></i><i></i><span id="prevLbl">Preview: how your emails will look</span></div>
+      <div class="mail"><p class="fake">Best regards,</p><div id="sig"></div></div>
+      <div class="actions">
+        <button class="btn primary" type="button" id="copyBtn"><span class="n" style="background:#fff;color:var(--red)">2</span>Copy my signature</button>
+        <span class="toast" id="toast" role="status" hidden></span>
+      </div>
+    </section>
+
+    <section class="card section" aria-labelledby="h-install">
+      <h2 id="h-install"><span class="n">3</span>Paste it into Outlook</h2>
+      <p class="sub">Pick the Outlook you use. If there's a <b>New Outlook</b> toggle at the top right and it's on, or you use Outlook in a browser, pick the first tab.</p>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true"  aria-controls="p-new" id="t-new">New Outlook &amp; web</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-classic" id="t-classic" tabindex="-1">Classic Outlook (Windows)</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-mac" id="t-mac" tabindex="-1">Outlook for Mac</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-mobile" id="t-mobile" tabindex="-1">Phone app</button>
+      </div>
+      <div class="panel on" id="p-new" role="tabpanel" aria-labelledby="t-new">
+        <ol class="how">
+          <li>Click the <span class="path">Settings</span> gear at the top right.</li>
+          <li>Go to <span class="path">Accounts → Signatures</span>.</li>
+          <li>Click <span class="path">+ New signature</span> and name it <b>Trinoor</b>.</li>
+          <li>Click inside the large box and paste: <kbd>Ctrl</kbd> + <kbd>V</kbd> (Windows) or <kbd>⌘</kbd> + <kbd>V</kbd> (Mac).</li>
+          <li>Under <span class="path">Select default signatures</span>, choose <b>Trinoor</b> for <i>New messages</i> and <i>Replies/forwards</i>.</li>
+          <li>Click <span class="path">Save</span>, then delete any old signature in the list.</li>
+        </ol>
+        <p class="note">New Outlook and Outlook on the web share one signature, so you only do this once.</p>
+      </div>
+      <div class="panel" id="p-classic" role="tabpanel" aria-labelledby="t-classic">
+        <ol class="how">
+          <li>Go to <span class="path">File → Options → Mail</span> and click <span class="path">Signatures…</span></li>
+          <li>Click <span class="path">New</span>, name it <b>Trinoor</b>, click <span class="path">OK</span>.</li>
+          <li>Click inside <span class="path">Edit signature</span> and paste: <kbd>Ctrl</kbd> + <kbd>V</kbd>.</li>
+          <li>On the right, set <span class="path">New messages</span> and <span class="path">Replies/forwards</span> to <b>Trinoor</b>.</li>
+          <li>Click <span class="path">OK</span>, then <span class="path">OK</span> again.</li>
+        </ol>
+        <p class="note">Copy from Chrome or Edge. Pasting from other browsers can drop images in Classic Outlook.</p>
+      </div>
+      <div class="panel" id="p-mac" role="tabpanel" aria-labelledby="t-mac">
+        <ol class="how">
+          <li>In the menu bar, click <span class="path">Outlook → Settings → Signatures</span>.</li>
+          <li>Click <span class="path">+</span> and name it <b>Trinoor</b>.</li>
+          <li>Click inside the editing box and paste: <kbd>⌘</kbd> + <kbd>V</kbd>. Save or close the editor.</li>
+          <li>Under <span class="path">Choose default signature</span>, set <i>New messages</i> and <i>Replies/forwards</i> to <b>Trinoor</b>.</li>
+        </ol>
+      </div>
+      <div class="panel" id="p-mobile" role="tabpanel" aria-labelledby="t-mobile">
+        <ol class="how">
+          <li>In the Outlook app, tap your profile picture, then the <span class="path">Settings</span> gear.</li>
+          <li>Tap <span class="path">Signature</span>.</li>
+          <li>Replace the text with the line below, then go back to save.</li>
+        </ol>
+        <p class="note" id="mobileLine" style="font-weight:600;color:var(--fg)">Your Name | Job Title | Trinoor</p>
+        <p class="note">The phone app keeps a short text signature. That's expected.</p>
+      </div>
+    </section>
+
+    <div class="two section">
+      <section class="card" aria-labelledby="h-test">
+        <h2 id="h-test"><span class="n">4</span>Send yourself a test</h2>
+        <p class="sub">Start a new email to yourself and check:</p>
+        <ol class="how">
+          <li>The signature appears on its own.</li>
+          <li>The logo, icons and banner show and aren't stretched.</li>
+          <li>Reply to it from your phone. The signature underneath should stay intact.</li>
+        </ol>
+      </section>
+      <section class="card" aria-labelledby="h-faq">
+        <h2 id="h-faq">If something looks wrong</h2>
+        <dl class="faq">
+          <dt>Images show as empty boxes</dt>
+          <dd>Some email apps hide images until the reader clicks "Download pictures". That's normal.</dd>
+          <dt>Spacing or fonts changed</dt>
+          <dd>Delete the signature in Outlook, copy it again from this page and paste it without editing.</dd>
+          <dt>Two signatures appear</dt>
+          <dd>An old signature is still set as a default. Remove it in the same Signatures settings.</dd>
+          <dt>My details changed</dt>
+          <dd>Come back here, update them, and repeat steps 2 and 3.</dd>
+        </dl>
+      </section>
+    </div>
+
+    <details class="admin">
+      <summary>For IT and Design Studio</summary>
+      <p>Signature images load from <code id="baseOut"></code>. Staff photos go in <code>signature/photos/</code>, named after the person's email (for example <code>sarah.oconnor.png</code>).</p>
+      <button class="btn ghost small" type="button" id="copyCode">Copy HTML code</button> <span class="toast" id="toast2" role="status" hidden></span>
+    </details>
+  </div>
+</div>
+</main>
+
+<footer><div class="wrap">Questions about your signature? Contact Design Studio · © Trinoor LLC. All rights reserved 2026</div></footer>
+
+<script>
+/* ---------- Settings ---------- */
+const PUBLIC_BASE = 'https://trinoor.github.io/design-studio/signature/';
+const PHOTO_INBOX = 'sarah.oconnor@trinoor.com';      /* where staff email their photo */
+/* ?base=... lets Design Studio test a copy before publishing */
+const BASE = (new URLSearchParams(location.search).get('base') || PUBLIC_BASE).replace(/\/?$/, '/');
+
+const IMG = {
+  logo: BASE + 'assets/logo.png',
+  icons: { M: BASE + 'assets/icon-mobile.png', P: BASE + 'assets/icon-phone.png', E: BASE + 'assets/icon-email.png', L: BASE + 'assets/icon-location.png' },
+  banners: { key: BASE + 'assets/banner-glowing-key.jpg', helix: BASE + 'assets/banner-tashelix.jpg' }
+};
+const CFG = {
+  web: 'https://www.trinoor.com', webLabel: 'trinoor.com',
+  li: 'https://www.linkedin.com/company/trinoor/', fb: 'https://www.facebook.com/TrinoorTAS',
+  loc: { hq: '1800 Roswell Road, Suite 3050, Marietta, GA 30062, USA', ph: 'Quezon City, Philippines', none: '' }
+};
+const DISCLAIMER = 'CONFIDENTIALITY AND PRIVILEGE NOTICE: This communication, along with any attachments, is strictly confidential, possibly privileged, and intended solely for the use of the designated recipient(s). Unauthorized use, disclosure, copying, distribution, or reliance on the content of this transmission is strictly prohibited. If you are not the intended recipient, you are hereby notified that any action taken based on this information is strictly prohibited and may be unlawful. If you have received this communication in error, please notify the sender immediately by return e-mail, delete it, and destroy all copies of this communication, whether in electronic or hard copy format. Thank you for your cooperation.';
+/* Dulce's colours, chosen to read on white and dark-mode inboxes */
+const C = { name:'#646C7E', red:'#DF1126', text:'#7D8597', soft:'#8D94A5', silver:'#BBBCC8' };
+const F = 'font-family:Arial,Helvetica,sans-serif;';
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tel = s => 'tel:' + s.replace(/[^\d+]/g, '');
+let BANNER = 'key';
+
+/* ---------- Photo: hosted file named after the email ---------- */
+const photo = { state: 'off', hostedUrl: '', localUrl: '', localBlob: null, checkedFor: '' };
+const emailLocal = e => (e.split('@')[0] || '').toLowerCase().replace(/[^a-z0-9._-]/g, '');
+const photoUrlFor = e => BASE + 'photos/' + emailLocal(e) + '.png';
+
+function checkPhoto(force){
+  const e = $('email').value.trim().toLowerCase();
+  if (!$('usePhoto').checked){ photo.state = 'off'; return paintPhoto(); }
+  if (!/@trinoor\.com$/.test(e)){ photo.state = 'needEmail'; return paintPhoto(); }
+  if (!force && photo.checkedFor === e && photo.state !== 'checking') return paintPhoto();
+  photo.checkedFor = e; photo.state = 'checking'; paintPhoto();
+  const url = photoUrlFor(e), probe = new Image();
+  probe.onload = () => { if (photo.checkedFor === e){ photo.state = 'found'; photo.hostedUrl = url; paintPhoto(); } };
+  probe.onerror = () => { if (photo.checkedFor === e){ photo.state = 'missing'; photo.hostedUrl = ''; paintPhoto(); } };
+  probe.src = url + '?check=' + Date.now();
+}
+function paintPhoto(){
+  const on = $('usePhoto').checked;
+  $('photoBox').hidden = !on;
+  const s = $('photoStatus');
+  const msg = {
+    needEmail: ['', 'Enter your @trinoor.com email first.'],
+    checking: ['', 'Checking for your photo…'],
+    found: ['ok', '✓ Your photo is ready.'],
+    missing: ['wait', photo.localUrl ? 'Photo chosen. Download it and email it to Design Studio.' : 'Your photo hasn\'t been added yet.']
+  }[photo.state] || ['', ''];
+  s.className = 'status ' + msg[0]; s.textContent = msg[1];
+  $('photoMissing').hidden = photo.state !== 'missing';
+  $('photoPrev').src = photo.state === 'found' ? photo.hostedUrl : (photo.localUrl || initials());
+  $('photoDownload').disabled = !photo.localBlob;
+  const d = data(false);
+  const file = emailLocal(d.email) + '.png';
+  $('photoMail').href = 'mailto:' + PHOTO_INBOX + '?subject=' + encodeURIComponent('Signature photo: ' + (d.name || file))
+    + '&body=' + encodeURIComponent('Hi Design Studio,\n\nMy signature photo is attached (' + file + ').\n\nThanks,\n' + (d.name || ''));
+  render();
+}
+function initials(){
+  const n = ($('name').value.trim() || 'Your Name').split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  const c = document.createElement('canvas'); c.width = c.height = 112; const x = c.getContext('2d');
+  x.fillStyle = '#ECEEF1'; x.beginPath(); x.arc(56, 56, 56, 0, Math.PI * 2); x.fill();
+  x.fillStyle = '#646C7E'; x.font = 'bold 40px Arial'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(n, 56, 58);
+  return c.toDataURL();
+}
+/* Cut the chosen photo into a smooth 288px circle PNG (stays round in Outlook) */
+$('photoFile').addEventListener('change', e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  const img = new Image();
+  img.onload = () => {
+    const S = 288, c = document.createElement('canvas'); c.width = c.height = S;
+    const x = c.getContext('2d'); x.imageSmoothingQuality = 'high';
+    const s = Math.min(img.width, img.height);
+    x.drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, S, S);
+    x.globalCompositeOperation = 'destination-in';
+    x.beginPath(); x.arc(S / 2, S / 2, S / 2 - 0.5, 0, Math.PI * 2); x.fill();
+    c.toBlob(b => {
+      if (photo.localUrl) URL.revokeObjectURL(photo.localUrl);
+      photo.localBlob = b; photo.localUrl = URL.createObjectURL(b); paintPhoto();
+    }, 'image/png');
+    URL.revokeObjectURL(img.src);
+  };
+  img.src = URL.createObjectURL(f);
+});
+$('photoDownload').addEventListener('click', () => {
+  if (!photo.localBlob) return;
+  const a = document.createElement('a'); a.href = photo.localUrl;
+  a.download = (emailLocal($('email').value) || 'my-photo') + '.png';
+  document.body.appendChild(a); a.click(); a.remove();
+});
+$('photoRecheck').addEventListener('click', () => checkPhoto(true));
+$('usePhoto').addEventListener('change', () => checkPhoto(false));
+
+/* ---------- Signature: Option 02 · Red Rail (Dulce) ---------- */
+function data(preview){
+  const v = id => $(id).value.trim();
+  return {
+    name: v('name') || (preview ? 'Your Name' : ''),
+    title: v('title') || (preview ? 'Job Title' : ''),
+    email: (v('email') || (preview ? 'name@trinoor.com' : '')).toLowerCase(),
+    mobile: v('mobile') || (preview ? '+1 404 555 0123' : ''),
+    office: v('office'),
+    location: $('loc').value === 'custom' ? (v('custom') || (preview ? 'Your city, country' : '')) : CFG.loc[$('loc').value]
+  };
+}
+const link = (href, text, style) => `<a href="${esc(href)}" style="${style}text-decoration:none;">${text}</a>`;
+const icon = (k, alt) => `<img src="${IMG.icons[k]}" width="13" height="13" alt="${alt}" style="display:inline-block;width:13px;height:13px;border:0;vertical-align:-2px;">&nbsp;`;
+const CGAP = '<div style="height:10px;line-height:10px;font-size:10px;">&nbsp;</div>';
+const T = (style, inner) => `<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;${style}">${inner}</table>`;
+
+function contacts(d){
+  const val = `${F}color:${C.text};`, out = [];
+  if (d.mobile) out.push(icon('M', 'Mobile') + link(tel(d.mobile), esc(d.mobile), val));
+  if (d.office) out.push(icon('P', 'Phone') + link(tel(d.office), esc(d.office), val));
+  if (d.email)  out.push(icon('E', 'Email') + link('mailto:' + d.email, esc(d.email), val));
+  return out.join(CGAP);
+}
+function socials(){
+  const dot = `<span style="color:${C.silver};">&nbsp;&nbsp;·&nbsp;&nbsp;</span>`;
+  const st = `${F}font-size:12px;font-weight:bold;color:${C.text};`;
+  return link(CFG.web, CFG.webLabel, st) + dot + link(CFG.li, 'LinkedIn', st) + dot + link(CFG.fb, 'Facebook', st);
+}
+function signature(d, photoSrc){
+  const sp = w => `<td style="width:${w}px;font-size:0;line-height:0;">&nbsp;</td>`;
+  const nt = `<div style="${F}font-size:24px;line-height:30px;font-weight:bold;letter-spacing:-0.2px;color:${C.name};">${esc(d.name)}</div>
+<div style="${F}font-size:11px;line-height:18px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:${C.red};padding-top:2px;">${esc(d.title)}</div>`;
+  const left = photoSrc
+    ? T('', `<tr><td valign="middle" style="width:72px;padding:0 14px 0 0;"><img src="${photoSrc}" width="72" height="72" alt="${esc(d.name)}" style="display:block;width:72px;height:72px;min-width:72px;max-width:72px;border:0;border-radius:50%;"></td><td valign="middle" style="${F}">${nt}</td></tr>`) + '<div style="height:31px;line-height:31px;font-size:31px;">&nbsp;</div>'
+    : nt + '<div style="height:53px;line-height:53px;font-size:53px;">&nbsp;</div>';
+  const loc = d.location ? `${CGAP}<span style="color:${C.soft};">${icon('L', 'Location')}${esc(d.location)}</span>` : '';
+  const banner = BANNER === 'none' ? '' :
+    `<tr><td colspan="7" style="padding:18px 0 0 0;">${link(CFG.web, `<img src="${IMG.banners[BANNER]}" width="570" height="100" alt="Trinoor. Digitize. Integrate. Deliver. www.trinoor.com" style="display:block;width:570px;max-width:100%;height:auto;border:0;">`, '')}</td></tr>`;
+  return T(`${F}width:570px;max-width:100%;`, `
+<tr>
+<td style="width:4px;background:${C.red};font-size:0;line-height:0;">&nbsp;</td>
+${sp(18)}
+<td valign="top" style="${F}white-space:nowrap;">${left}<div style="${F}line-height:19px;">${socials()}</div></td>
+${sp(30)}
+<td style="width:1px;background:#E2E5EB;font-size:0;line-height:0;">&nbsp;</td>
+${sp(30)}
+<td valign="top" style="${F}white-space:nowrap;">
+${link(CFG.web, `<img src="${IMG.logo}" width="110" height="29" alt="Trinoor" style="display:block;width:110px;height:29px;min-width:110px;max-width:110px;border:0;">`, '')}
+<div style="height:16px;line-height:16px;font-size:16px;">&nbsp;</div>
+<div style="${F}font-size:12px;line-height:19px;color:${C.text};">${contacts(d)}${loc}</div>
+</td>
+</tr>
+${banner}
+<tr><td colspan="7" style="padding:16px 0 0 0;${F}font-size:9px;line-height:13px;color:#8A90A0;">${DISCLAIMER}</td></tr>`);
+}
+/* Preview may show a chosen-but-not-yet-hosted photo; the copied signature only ever uses the hosted one */
+function previewPhoto(){
+  if (!$('usePhoto').checked) return '';
+  return photo.state === 'found' ? photo.hostedUrl : (photo.localUrl || '');
+}
+function copyPhoto(){ return $('usePhoto').checked && photo.state === 'found' ? photoUrlFor($('email').value.trim()) : ''; }
+
+function render(){
+  $('customWrap').hidden = $('loc').value !== 'custom';
+  const d = data(true);
+  $('sig').innerHTML = signature(d, previewPhoto());
+  const em = $('email').value.trim();
+  $('emailErr').hidden = !em || /@trinoor\.com$/i.test(em);
+  $('mobileLine').textContent = [d.name, d.title, 'Trinoor'].join(' | ');
+}
+
+/* ---------- Copy ---------- */
+async function copyRich(html, plain){
+  let ok = false;
+  const h = e => { e.clipboardData.setData('text/html', html); e.clipboardData.setData('text/plain', plain); e.preventDefault(); ok = true; };
+  document.addEventListener('copy', h);
+  try { document.execCommand('copy'); } catch (_) {}
+  document.removeEventListener('copy', h);
+  if (ok) return true;
+  try {
+    await navigator.clipboard.write([new ClipboardItem({ 'text/html': new Blob([html], { type: 'text/html' }), 'text/plain': new Blob([plain], { type: 'text/plain' }) })]);
+    return true;
+  } catch (_) { return false; }
+}
+function flash(id, msg, bad){
+  const t = $(id); t.textContent = msg; t.hidden = false; t.classList.toggle('bad', !!bad);
+  clearTimeout(t._t); t._t = setTimeout(() => t.hidden = true, 6000);
+}
+function ready(){
+  const d = data(false);
+  if (!d.name || !d.title || !d.email){ flash('toast', 'Add your name, job title and email first.', true); return null; }
+  if (!/@trinoor\.com$/.test(d.email)){ flash('toast', 'Use your @trinoor.com email address.', true); $('email').focus(); return null; }
+  if (!d.mobile){ flash('toast', 'Add your mobile number first.', true); $('mobile').focus(); return null; }
+  return d;
+}
+$('copyBtn').addEventListener('click', async () => {
+  const d = ready(); if (!d) return;
+  const html = signature(d, copyPhoto());
+  const plain = [d.name, d.title + ' | Trinoor', 'M ' + d.mobile, d.office && 'P ' + d.office, d.email, 'trinoor.com'].filter(Boolean).join('\n');
+  const ok = await copyRich(html, plain);
+  const noPhoto = $('usePhoto').checked && photo.state !== 'found';
+  if (!ok) return flash('toast', 'Your browser blocked copying. Select the preview, press Ctrl+C or ⌘+C, and paste that.', true);
+  flash('toast', noPhoto ? 'Copied without your photo for now. Paste it into Outlook (step 3).' : 'Copied. Now paste it into Outlook (step 3).');
+});
+$('copyCode').addEventListener('click', async () => {
+  const d = ready(); if (!d) return;
+  const html = signature(d, copyPhoto());
+  let ok = false;
+  try { await navigator.clipboard.writeText(html); ok = true; } catch (_) { ok = await copyRich(html, html); }
+  flash('toast2', ok ? 'HTML code copied.' : 'Copy was blocked by the browser.', !ok);
+});
+
+/* ---------- Wiring ---------- */
+['name', 'title', 'mobile', 'office', 'custom'].forEach(id => $(id).addEventListener('input', () => { render(); if (id === 'name' && photo.state !== 'found') paintPhoto(); }));
+let emailTimer;
+$('email').addEventListener('input', () => { render(); clearTimeout(emailTimer); emailTimer = setTimeout(() => checkPhoto(false), 500); });
+$('loc').addEventListener('change', render);
+$('form').addEventListener('submit', e => e.preventDefault());
+
+document.querySelectorAll('#bannerPick img[data-src]').forEach(i => i.src = BASE + i.dataset.src);
+document.querySelectorAll('#bannerPick button').forEach(b => b.addEventListener('click', () => {
+  BANNER = b.dataset.banner;
+  document.querySelectorAll('#bannerPick button').forEach(x => x.setAttribute('aria-checked', x === b));
+  render();
+}));
+
+const tabs = [...document.querySelectorAll('.tab')];
+function selectTab(t){
+  tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; $(x.getAttribute('aria-controls')).classList.toggle('on', on); });
+}
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => selectTab(t));
+  t.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; selectTab(n); n.focus();
+  });
+});
+const ua = navigator.userAgent;
+if (/iPhone|iPad|Android/i.test(ua)) selectTab($('t-mobile'));
+else if (/Mac/i.test(navigator.platform || ua)) selectTab($('t-mac'));
+
+$('baseOut').textContent = BASE;
+render(); paintPhoto();
+</script>
+</body>
+</html>
