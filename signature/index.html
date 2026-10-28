@@ -412,7 +412,7 @@ function data(preview){
 }
 const link = (href, text, style) => `<a href="${esc(href)}" style="${style}text-decoration:none;">${text}</a>`;
 const icon = (k, alt) => `<img src="${IMG.icons[k]}" width="13" height="13" alt="${alt}" style="display:inline-block;width:13px;height:13px;border:0;vertical-align:-2px;">&nbsp;`;
-const CGAP = '<div style="height:10px;line-height:10px;font-size:10px;">&nbsp;</div>';
+const CGAP = '<div style="height:6px;line-height:6px;font-size:6px;">&nbsp;</div>';
 const T = (style, inner) => `<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;${style}">${inner}</table>`;
 
 function contacts(d){
@@ -427,13 +427,13 @@ function socials(){
   const st = `${F}font-size:12px;font-weight:bold;color:${C.text};`;
   return link(CFG.web, CFG.webLabel, st) + dot + link(CFG.li, 'LinkedIn', st) + dot + link(CFG.fb, 'Facebook', st);
 }
-function signature(d, photoSrc){
+function signature(d, photoSrc, gap){
   const sp = w => `<td style="width:${w}px;font-size:0;line-height:0;">&nbsp;</td>`;
   const nt = `<div style="${F}font-size:20px;line-height:30px;font-weight:normal;letter-spacing:-0.2px;color:${C.name};">${esc(d.name)}</div>
-<div style="${F}font-size:11px;line-height:18px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:${C.red};padding-top:2px;">${esc(d.title)}</div>`;
+<div style="${F}font-size:11px;line-height:18px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:${C.red};padding-top:2px;">${esc(d.title)}</div>`;
   const left = photoSrc
-    ? T('width:260px;', `<tr><td valign="middle" style="width:72px;padding:0 14px 0 0;"><img src="${photoSrc}" width="72" height="72" alt="${esc(d.name)}" style="display:block;width:72px;height:72px;min-width:72px;max-width:72px;border:0;border-radius:50%;"></td><td valign="middle" style="${F}">${nt}</td></tr>`) + '<div style="height:31px;line-height:31px;font-size:31px;">&nbsp;</div>'
-    : nt + '<div style="height:53px;line-height:53px;font-size:53px;">&nbsp;</div>';
+    ? T('width:260px;', `<tr><td valign="middle" style="width:72px;padding:0 14px 0 0;"><img src="${photoSrc}" width="72" height="72" alt="${esc(d.name)}" style="display:block;width:72px;height:72px;min-width:72px;max-width:72px;border:0;border-radius:50%;"></td><td valign="middle" style="${F}">${nt}</td></tr>`) : nt;
+  const g = gap || 0;
   const loc = d.location ? `${CGAP}<div style="${F}font-size:12px;line-height:19px;color:${C.soft};">${icon('L', 'Location')}${esc(d.location)}</div>` : '';
   const banner = BANNER === 'none' ? '' :
     `<tr><td colspan="7" style="padding:18px 0 0 0;">${link(CFG.web, `<img src="${IMG.banners[BANNER]}" width="570" height="100" alt="Trinoor. Digitize. Integrate. Deliver. www.trinoor.com" style="display:block;width:570px;max-width:100%;height:auto;border:0;">`, '')}</td></tr>`;
@@ -441,7 +441,7 @@ function signature(d, photoSrc){
 <tr>
 <td style="width:4px;background:${C.red};font-size:0;line-height:0;">&nbsp;</td>
 ${sp(18)}
-<td valign="top" width="260" style="${F}width:260px;">${left}<div style="${F}line-height:19px;white-space:nowrap;">${socials()}</div></td>
+<td valign="top" width="260" style="${F}width:260px;">${left}<div style="height:${g}px;line-height:${g}px;font-size:${g}px;">&nbsp;</div><div style="${F}line-height:19px;white-space:nowrap;">${socials()}</div></td>
 ${sp(30)}
 <td style="width:1px;background:#E2E5EB;font-size:0;line-height:0;">&nbsp;</td>
 ${sp(30)}
@@ -452,8 +452,22 @@ ${link(CFG.web, `<img src="${IMG.logo}" width="110" height="29" alt="Trinoor" st
 </td>
 </tr>
 ${banner}
-<tr><td colspan="7" style="padding:16px 0 0 0;${F}font-size:9px;line-height:13px;color:#8A90A0;">${DISCLAIMER}</td></tr>`);
+<tr><td colspan="7" style="padding:16px 0 0 0;${F}font-size:10px;line-height:14px;color:#8A90A0;">${DISCLAIMER}</td></tr>`);
 }
+/* Gap above the socials line so it ends level with the last line on the right, however many lines the title wraps to */
+const MIN_GAP = 16;
+function fitGap(d, photoSrc){
+  const m = document.createElement('div');
+  m.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;';
+  m.innerHTML = signature(d, photoSrc, 0);
+  document.body.appendChild(m);
+  const c = m.querySelector('table').rows[0].cells;
+  const bottom = td => td.lastElementChild.getBoundingClientRect().bottom;
+  const gap = Math.max(MIN_GAP, Math.round(bottom(c[6]) - bottom(c[2])));
+  m.remove();
+  return gap;
+}
+const sigFor = (d, photoSrc) => signature(d, photoSrc, fitGap(d, photoSrc));
 /* Preview may show a chosen-but-not-yet-hosted photo; the copied signature only ever uses the hosted one */
 function previewPhoto(){
   if (!$('usePhoto').checked) return '';
@@ -464,7 +478,7 @@ function copyPhoto(){ return $('usePhoto').checked && photo.state === 'found' ? 
 function render(){
   $('customWrap').hidden = $('loc').value !== 'custom';
   const d = data(true);
-  $('sig').innerHTML = signature(d, previewPhoto());
+  $('sig').innerHTML = sigFor(d, previewPhoto());
   const em = $('email').value.trim();
   $('emailErr').hidden = !em || /@trinoor\.com$/i.test(em);
   $('mobileLine').textContent = [d.name, d.title, 'Trinoor'].join(' | ');
@@ -496,7 +510,7 @@ function ready(){
 }
 $('copyBtn').addEventListener('click', async () => {
   const d = ready(); if (!d) return;
-  const html = signature(d, copyPhoto());
+  const html = sigFor(d, copyPhoto());
   const plain = [d.name, d.title + ' | Trinoor', 'M ' + d.mobile, d.office && 'P ' + d.office, d.email, 'trinoor.com'].filter(Boolean).join('\n');
   const ok = await copyRich(html, plain);
   const noPhoto = $('usePhoto').checked && photo.state !== 'found';
@@ -505,7 +519,7 @@ $('copyBtn').addEventListener('click', async () => {
 });
 $('copyCode').addEventListener('click', async () => {
   const d = ready(); if (!d) return;
-  const html = signature(d, copyPhoto());
+  const html = sigFor(d, copyPhoto());
   let ok = false;
   try { await navigator.clipboard.writeText(html); ok = true; } catch (_) { ok = await copyRich(html, html); }
   flash('toast2', ok ? 'HTML code copied.' : 'Copy was blocked by the browser.', !ok);
