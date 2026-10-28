@@ -432,23 +432,23 @@ function signature(d, photoSrc){
   const nt = `<div style="${F}font-size:20px;line-height:30px;font-weight:normal;letter-spacing:-0.2px;color:${C.name};">${esc(d.name)}</div>
 <div style="${F}font-size:11px;line-height:18px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:${C.red};padding-top:2px;">${esc(d.title)}</div>`;
   const left = photoSrc
-    ? T('', `<tr><td valign="middle" style="width:72px;padding:0 14px 0 0;"><img src="${photoSrc}" width="72" height="72" alt="${esc(d.name)}" style="display:block;width:72px;height:72px;min-width:72px;max-width:72px;border:0;border-radius:50%;"></td><td valign="middle" style="${F}">${nt}</td></tr>`) + '<div style="height:31px;line-height:31px;font-size:31px;">&nbsp;</div>'
+    ? T('width:260px;', `<tr><td valign="middle" style="width:72px;padding:0 14px 0 0;"><img src="${photoSrc}" width="72" height="72" alt="${esc(d.name)}" style="display:block;width:72px;height:72px;min-width:72px;max-width:72px;border:0;border-radius:50%;"></td><td valign="middle" style="${F}">${nt}</td></tr>`) + '<div style="height:31px;line-height:31px;font-size:31px;">&nbsp;</div>'
     : nt + '<div style="height:53px;line-height:53px;font-size:53px;">&nbsp;</div>';
-  const loc = d.location ? `${CGAP}<span style="color:${C.soft};">${icon('L', 'Location')}${esc(d.location)}</span>` : '';
+  const loc = d.location ? `${CGAP}<div style="${F}font-size:12px;line-height:19px;color:${C.soft};">${icon('L', 'Location')}${esc(d.location)}</div>` : '';
   const banner = BANNER === 'none' ? '' :
     `<tr><td colspan="7" style="padding:18px 0 0 0;">${link(CFG.web, `<img src="${IMG.banners[BANNER]}" width="570" height="100" alt="Trinoor. Digitize. Integrate. Deliver. www.trinoor.com" style="display:block;width:570px;max-width:100%;height:auto;border:0;">`, '')}</td></tr>`;
   return T(`${F}width:570px;max-width:100%;`, `
 <tr>
 <td style="width:4px;background:${C.red};font-size:0;line-height:0;">&nbsp;</td>
 ${sp(18)}
-<td valign="top" style="${F}white-space:nowrap;">${left}<div style="${F}line-height:19px;">${socials()}</div></td>
+<td valign="top" width="260" style="${F}width:260px;">${left}<div style="${F}line-height:19px;white-space:nowrap;">${socials()}</div></td>
 ${sp(30)}
 <td style="width:1px;background:#E2E5EB;font-size:0;line-height:0;">&nbsp;</td>
 ${sp(30)}
-<td valign="top" style="${F}white-space:nowrap;">
+<td valign="top" width="227" style="${F}width:227px;">
 ${link(CFG.web, `<img src="${IMG.logo}" width="110" height="29" alt="Trinoor" style="display:block;width:110px;height:29px;min-width:110px;max-width:110px;border:0;">`, '')}
 <div style="height:16px;line-height:16px;font-size:16px;">&nbsp;</div>
-<div style="${F}font-size:12px;line-height:19px;color:${C.text};">${contacts(d)}${loc}</div>
+<div style="${F}font-size:12px;line-height:19px;color:${C.text};white-space:nowrap;">${contacts(d)}</div>${loc}
 </td>
 </tr>
 ${banner}
