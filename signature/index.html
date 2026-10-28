@@ -164,8 +164,12 @@ footer .wrap{padding-block:18px}
       <p class="hint" style="margin-top:-6px">Include the country code: +1 (US), +61 (AU), +63 (PH).</p>
       <div><label for="loc">Location</label>
         <select id="loc">
-          <option value="hq">Marietta, GA (HQ)</option>
-          <option value="ph">Quezon City, Philippines</option>
+          <option value="hq">Marietta, GA, USA (HQ)</option>
+          <option value="au">Surfers Paradise, Australia</option>
+          <option value="ca">Vancouver, Canada</option>
+          <option value="emea">Paks, Hungary (EMEA)</option>
+          <option value="hu">Haris Koz, Hungary</option>
+          <option value="ph">Eastwood City, Philippines</option>
           <option value="custom">Other (type your own)</option>
           <option value="none">Don't show</option>
         </select>
@@ -315,7 +319,15 @@ const IMG = {
 const CFG = {
   web: 'https://www.trinoor.com', webLabel: 'trinoor.com',
   li: 'https://www.linkedin.com/company/trinoor/', fb: 'https://www.facebook.com/TrinoorTAS',
-  loc: { hq: '1800 Roswell Road, Suite 3050, Marietta, GA 30062, USA', ph: 'Quezon City, Philippines', none: '' }
+  loc: {
+    hq:   '1800 Roswell Road, Suite 3050, Marietta GA 30062, USA',
+    au:   '50 Cavill Ave, Suite 8e, Surfers Paradise QLD 4217, Australia',
+    ca:   '700 West Georgia St, Suite 2200, Vancouver, British Columbia V7Y 1K8, Canada',
+    emea: 'Rózsa u. 1, 7030 Paks, Hungary',
+    hu:   'Haris Koz. 2, Felement 2 1052, Hungary',
+    ph:   '8AB IBM Plaza Condominium, 8 Eastwood Avenue, Eastwood City, Bagumbayan, Quezon City, Philippines 1110',
+    none: ''
+  }
 };
 const DISCLAIMER = 'CONFIDENTIALITY AND PRIVILEGE NOTICE: This communication, along with any attachments, is strictly confidential, possibly privileged, and intended solely for the use of the designated recipient(s). Unauthorized use, disclosure, copying, distribution, or reliance on the content of this transmission is strictly prohibited. If you are not the intended recipient, you are hereby notified that any action taken based on this information is strictly prohibited and may be unlawful. If you have received this communication in error, please notify the sender immediately by return e-mail, delete it, and destroy all copies of this communication, whether in electronic or hard copy format. Thank you for your cooperation.';
 /* Dulce's colours, chosen to read on white and dark-mode inboxes */
